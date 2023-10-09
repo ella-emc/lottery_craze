@@ -26,6 +26,8 @@ def main():
     for entry in entries:
         if int(entry) < 1 or int(entry) > 59:
             sys.exit("Invalid range of numbers (must be 1-59)")
+    
+    entries = [int(entry) for entry in entries]
 
     # Read the file
     with open("lottery_NY_lotto_winning_numbers_formatted.csv") as dataset:
@@ -34,27 +36,27 @@ def main():
             same = 0
             date = line[0]
             numbers = [int(num) for num in line[1].split()]
+           
+            # Compare number in input to number in dataset
+            for number in numbers:
+                for entry in entries:
+                    if number == entry:
+                        same += 1
+                        break
 
-        # Compare number in input to number in dataset
-        for number in numbers:
-            for entry in entries:
-                if number == entry:
-                    same += 1
-                    break
-        
-        match same:
-            case 6:
-                six_number_winners += 1
-                write_to_six(date, numbers)
-            case 5:
-                five_number_winners += 1
-                write_to_five(date, numbers)
-            case 4:
-                four_number_winners += 1
-                write_to_four(date, numbers)
-            case 3:
-                three_number_winners += 1
-                write_to_four(date, numbers)
+            match same:
+                case 6:
+                    six_number_winners += 1
+                    write_to_six(date, numbers)
+                case 5:
+                    five_number_winners += 1
+                    write_to_five(date, numbers)
+                case 4:
+                    four_number_winners += 1
+                    write_to_four(date, numbers)
+                case 3:
+                    three_number_winners += 1
+                    write_to_four(date, numbers)
 
     displayWinners(six_number_winners, five_number_winners, four_number_winners, three_number_winners)
     
