@@ -11,7 +11,7 @@ import sys, csv
 
 def main():
     display_home()
-    combination = input("Enter today's 6-number winning combination: ")
+    combination = input("  Enter today's 6-number winning combination: ")
     entries = []
 
     # Counter for winners in each number combination
@@ -57,7 +57,6 @@ def main():
                 write_to_four(date, numbers)
     
 
-
 def display_home():
     print("**************************************************")
     print("                LOTTERY CRAZE")
@@ -82,6 +81,15 @@ def write_to_four(win_date, win_num):
 def write_to_three(win_date, win_num):
     with open("three_number_winners.csv", "a") as three_num_file:
         three_num_file.write(f"{win_date},{win_num}")
+
+
+def displayWinners(six, five, four, three):
+    print("\n**************************************************")
+    print(f"   Six-combination winners: {six}")
+    print(f"   Five-combination winners: {five}")
+    print(f"   Four-combination winners: {four}")
+    print(f"   Three-combination winners: {three}")
+    print("\n**************************************************")
 
 if __name__ == "__main__":
     main()
