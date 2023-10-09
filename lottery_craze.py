@@ -25,7 +25,12 @@ def main():
     with open("lottery_NY_lotto_winning_numbers_formatted.csv") as dataset:
         reader = csv.reader(dataset)
         for line in reader:
-            print(line)
+            date = line[0]
+            numbers = [int(num) for num in line[1].split()]
+            print(numbers)
+        
+
+
 
 
 
