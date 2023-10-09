@@ -14,6 +14,12 @@ def main():
     combination = input("Enter today's 6-number winning combination: ")
     entries = []
 
+    # Counter for winners in each number combination
+    six_number_winners = 0
+    five_number_winners = 0
+    four_number_winners = 0
+    three_number_winners = 0
+
     entries = combination.split("-") if "-" in combination else combination.split("")
     
     # Check if range of number inputs is 1-59 inclusive
@@ -25,13 +31,21 @@ def main():
     with open("lottery_NY_lotto_winning_numbers_formatted.csv") as dataset:
         reader = csv.reader(dataset)
         for line in reader:
+            same = 0
             date = line[0]
             numbers = [int(num) for num in line[1].split()]
-            print(numbers)
+
+        # Compare number in input to number in dataset
+        for number in numbers:
+            for entry in entries:
+                if number == entry:
+                    same += 1
+                    break
         
-
-
-
+        match same:
+            case 6:
+                six_number_winners += 1
+                write_to_six(date, numbers)
 
 
 def display_home():
@@ -39,6 +53,25 @@ def display_home():
     print("                LOTTERY CRAZE")
     print("**************************************************")
 
+
+def write_to_six(win_date, win_num):
+    with open("six_number_winners.csv", "a") as six_num_file:
+        six_num_file.write(f"{win_date},{win_num}")
+
+
+def write_to_five(win_date, win_num):
+    with open("five_number_winners.csv", "a") as five_num_file:
+        five_num_file.write(f"{win_date},{win_num}")
+
+
+def write_to_four(win_date, win_num):
+    with open("four_number_winners.csv", "a") as four_num_file:
+        four_num_file.write(f"{win_date},{win_num}")
+
+
+def write_to_three(win_date, win_num):
+    with open("three_number_winners.csv", "a") as three_num_file:
+        three_num_file.write(f"{win_date},{win_num}")
 
 if __name__ == "__main__":
     main()
