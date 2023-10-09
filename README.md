@@ -16,3 +16,8 @@ The dataset used as input to the program was sourced from Sohier Dane on Kaggle.
   <li>This program assumes that each number is unique. (There is no repeating number in each line.)</li>
 </ul>
 
+
+<strong>Remark on the Python implementation: </strong>
+<ul>
+  <li>Only the combinations with winners will have a file written specifically for it, unlike in the C implementation where every number of combination yielded a file.</li>
+</ul>
