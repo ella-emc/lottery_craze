@@ -46,6 +46,16 @@ def main():
             case 6:
                 six_number_winners += 1
                 write_to_six(date, numbers)
+            case 5:
+                five_number_winners += 1
+                write_to_five(date, numbers)
+            case 4:
+                four_number_winners += 1
+                write_to_four(date, numbers)
+            case 3:
+                three_number_winners += 1
+                write_to_four(date, numbers)
+    
 
 
 def display_home():
