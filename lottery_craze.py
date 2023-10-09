@@ -12,12 +12,9 @@ import sys, csv
 def main():
     display_home()
     combination = input("Enter today's 6-number winning combination: ")
-    
-    # Check if input is separated by space
-    try:
-        entries = combination.split(" ")
-    except ValueError:
-        sys.exit("Invalid input")
+    entries = []
+
+    entries = combination.split("-") if "-" in combination else combination.split("")
     
     # Check if range of number inputs is 1-59 inclusive
     for entry in entries:
@@ -27,6 +24,8 @@ def main():
     # Read the file
     with open("lottery_NY_lotto_winning_numbers_formatted.csv") as dataset:
         reader = csv.reader(dataset)
+        for line in reader:
+            print(line)
 
 
 
