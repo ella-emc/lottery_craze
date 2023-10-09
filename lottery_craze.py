@@ -7,21 +7,33 @@
 
 # Count the number of winning entries in 6, 5, 4, and 3 combinations
 # Display the amount of prize for each and the total amount of prize in each number category
-import sys
+import sys, csv
 
 def main():
     display_home()
     combination = input("Enter today's 6-number winning combination: ")
     
-    while True:
-        try:
-
+    # Check if input is separated by space
+    try:
+        entries = combination.split(" ")
+    except ValueError:
+        sys.exit("Invalid input")
     
+    # Check if range of number inputs is 1-59 inclusive
+    for entry in entries:
+        if int(entry) < 1 or int(entry) > 59:
+            sys.exit("Invalid range of numbers (must be 1-59)")
+
+    # Read the file
+    with open("lottery_NY_lotto_winning_numbers_formatted.csv") as dataset:
+        reader = csv.reader(dataset)
+
 
 
 def display_home():
     print("**************************************************")
-    print()
+    print("                LOTTERY CRAZE")
+    print("**************************************************")
 
 
 if __name__ == "__main__":
