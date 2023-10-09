@@ -60,9 +60,9 @@ def main():
     
 
 def display_home():
-    print("**************************************************")
-    print("                LOTTERY CRAZE")
-    print("**************************************************")
+    print("**********************************************************************")
+    print("                          LOTTERY CRAZE")
+    print("**********************************************************************")
 
 
 def write_to_six(win_date, win_num):
@@ -86,12 +86,12 @@ def write_to_three(win_date, win_num):
 
 
 def displayWinners(six, five, four, three):
-    print("\n**************************************************")
+    print("\n**********************************************************************")
     print(f"   Six-combination winners: {six}")
     print(f"   Five-combination winners: {five}")
     print(f"   Four-combination winners: {four}")
     print(f"   Three-combination winners: {three}")
-    print("\n**************************************************")
+    print("\n**********************************************************************")
 
 if __name__ == "__main__":
     main()
