@@ -20,7 +20,7 @@ def main():
     four_number_winners = 0
     three_number_winners = 0
 
-    entries = combination.split("-") if "-" in combination else combination.split("")
+    entries = combination.split("-") if "-" in combination else combination.split(" ")
     
     # Check if range of number inputs is 1-59 inclusive
     for entry in entries:
